@@ -5,6 +5,10 @@ local CycleSpeedSystem = Concord.system({ pool = { "player", "slideshow", "veloc
 
 function CycleSpeedSystem:update(delta)
   for _, entity in ipairs(self.pool) do
+    if entity:has("begin") then
+      goto _
+    end
+
     if Resources.input:isDown("jump") then
       entity.slideshow.timeout = 0.05
     end
@@ -12,6 +16,8 @@ function CycleSpeedSystem:update(delta)
     if entity.velocity.y > 50 then
       entity.slideshow.timeout = 0.1
     end
+
+    ::_::
   end
 end
 

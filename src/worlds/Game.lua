@@ -23,6 +23,8 @@ function Game:init()
     Systems.SpawnerSystem,
     Systems.OffscreenSystem,
     Systems.FadeSystem,
+    Systems.WobblerSystem,
+    Systems.IntroSystem,
 
     -- Draw
     Systems.SpriteSystem,
@@ -79,7 +81,8 @@ function Game:init()
   -- Bird
   Concord.entity(self.world)
     -- This is for the start...
-    :give("wobbler", 3)
+    :give("wobbler", 25, 10)
+    :give("begin")
 
     :give("player")
     :give("rectangle", 34, 24, -32 * 0.5, -24 * 0.5)
