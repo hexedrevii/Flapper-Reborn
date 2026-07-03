@@ -12,3 +12,4 @@ Concord.component("gameover")
 Concord.component("scoreboard")
 
 Concord.component("start")
+Concord.component("begin")

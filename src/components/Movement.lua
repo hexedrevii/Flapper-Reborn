@@ -17,8 +17,11 @@ Concord.component("basicmover", function (c, dx, dy, speed)
   c.speed = speed
 end)
 
-Concord.component("wobbler", function (c, strength)
-  c.strength = strength
+Concord.component("wobbler", function (c, size, speed)
+  c.speed = speed
+  c.size = size
+
+  c.timer = 0
 end)
 
 Concord.component("offscreen_destroy", function (c, offset)
