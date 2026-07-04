@@ -23,7 +23,7 @@ local function rects(posA, rectA, posB, rectB)
           bottomA > topB
 end
 
-local function kill(self, player)
+local function kill(self, player, buttons)
   if player:has("dead") then return end
 
   player:give("dead")
@@ -36,6 +36,10 @@ local function kill(self, player)
   world:getSystem(BasicMoverSystem):setEnabled(false)
   world:getSystem(SpawnerSystem):setEnabled(false)
   world:getSystem(ScoreDrawSystem):setEnabled(false)
+
+  for _, entity in ipairs(buttons) do
+    entity:destroy()
+  end
 end
 
 local CollisionSystem = Concord.system(
@@ -43,7 +47,8 @@ local CollisionSystem = Concord.system(
     player  = { "player", "position", "rectangle", "score" },
     pipes   = { "pipe", "position", "rectangle" },
     scores  = { "score_area", "position", "rectangle" },
-    grounds = { "ground", "rectangle", "position" }
+    grounds = { "ground", "rectangle", "position" },
+    ui      = { "button" }
   }
 )
 
@@ -65,7 +70,7 @@ function CollisionSystem:update(delta)
       player.position, player.rectangle,
       entity.position, entity.rectangle
     ) then
-      kill(self, player)
+      kill(self, player, self.ui)
       entity:remove("rectangle")
     end
   end
@@ -75,7 +80,7 @@ function CollisionSystem:update(delta)
       player.position, player.rectangle,
       ground.position, ground.rectangle
     ) then
-      kill(self, player)
+      kill(self, player, self.ui)
 
       player.velocity.y = 0
 

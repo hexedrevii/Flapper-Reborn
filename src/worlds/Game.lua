@@ -12,6 +12,7 @@ function Game:init()
   self.world:addSystems(
     -- Update
     Systems.GravitySystem,
+    Systems.UICallbacks.PauseClickedSystem,
     Systems.JumpSystem,
     Systems.CollisionSystem,
     Systems.MoverSystem,
@@ -25,6 +26,7 @@ function Game:init()
     Systems.FadeSystem,
     Systems.WobblerSystem,
     Systems.IntroSystem,
+    Systems.ButtonSystem,
 
     -- Draw
     Systems.SpriteSystem,
@@ -38,6 +40,15 @@ function Game:init()
     Systems.EaseSystem,
     Systems.EasingCallbacks.GameOverSystem
   )
+
+  -- UI
+  Concord.entity(self.world)
+    :give("position", 20, 20)
+    :give("sprite", Resources.manager:get("pause"))
+    :give("layer", 5)
+    :give("button", 20)
+    :give("rectangle", 26, 28)
+    :give("pause")
 
   -- Message stuff
   local ready = Resources.manager:get("ready")
@@ -120,5 +131,18 @@ function Game:draw()
 
   Resources.canvas:render()
 end
+
+function Game:mousepressed(x, y, button)
+  if button ~= 1 then return end
+
+  self.world:emit("mousepressed", x, y, button)
+end
+
+function Game:mousereleased(x, y, button)
+  if button ~= 1 then return end
+
+  self.world:emit("mousereleased", x, y, button)
+end
+
 
 return Game

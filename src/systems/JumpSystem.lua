@@ -1,14 +1,32 @@
 local Concord = require "lib.Concord"
 local Resources = require "src.Resources"
 
-local JumpSystem = Concord.system({ pool = { "player", "jump", "velocity", "position" } })
+local JumpSystem = Concord.system({ pool = { "player", "jump", "velocity", "position" }, ui = { "button", "position", "rectangle" } })
+
+local function isInside(x, y, pos, rect)
+  local left = pos.x + (rect.ox or 0)
+  local right = left + rect.width
+  local top = pos.y + (rect.oy or 0)
+  local bottom = top + rect.height
+
+  return x >= left and x <= right and y >= top and y <= bottom
+end
+
+function JumpSystem:mousepressed(x, y, button)
+  for _, entity in ipairs(self.pool) do
+    for _, ui in ipairs(self.ui) do
+      if isInside(x, y, ui.position, ui.rectangle) then
+        goto skip
+      end
+    end
+
+    entity.velocity.y = -entity.jump.force
+    ::skip::
+  end
+end
 
 function JumpSystem:update(delta)
   for _, entity in ipairs(self.pool) do
-    if Resources.input:isPressed("jump") then
-      entity.velocity.y = -entity.jump.force
-    end
-
     if entity.position.y < -20 then
       -- push back by 1 pixel to not get stuck
       entity.position.y = -19
