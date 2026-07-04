@@ -42,6 +42,14 @@ function love.load()
 
   Resources.manager:add("blank", love.graphics.newImage("assets/Sprites/casablanca.png"))
 
+  Resources.manager:add("jump", love.audio.newSource("assets/Audio/wing.wav", "static"))
+  Resources.manager:add("point", love.audio.newSource("assets/Audio/point.wav", "static"))
+
+  Resources.manager:add("hit", love.audio.newSource("assets/Audio/hit.wav", "static"))
+  Resources.manager:add("fall", love.audio.newSource("assets/Audio/die.wav", "static"))
+
+  Resources.manager:add("woosh", love.audio.newSource("assets/Audio/swoosh.wav", "static"))
+
   for i=0, 9 do
     Resources.manager:add(i .. "", love.graphics.newImage("assets/Sprites/" .. i .. ".png"))
     Resources.manager:add(i .. "-small", love.graphics.newImage("assets/Sprites/" .. i .. "_small.png"))

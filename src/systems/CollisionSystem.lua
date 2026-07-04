@@ -26,6 +26,8 @@ end
 local function kill(self, player, buttons)
   if player:has("dead") then return end
 
+  Resources.manager:get("hit"):play()
+
   player:give("dead")
   player:remove("jump")
 
@@ -62,6 +64,7 @@ function CollisionSystem:update(delta)
     ) then
       player.score.score = player.score.score + 1
       entity:destroy()
+      Resources.manager:get("point"):play()
     end
   end
 
@@ -72,6 +75,7 @@ function CollisionSystem:update(delta)
     ) then
       kill(self, player, self.ui)
       entity:remove("rectangle")
+      Resources.manager:get("fall"):play()
     end
   end
 

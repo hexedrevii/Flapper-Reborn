@@ -8,6 +8,7 @@ function Death:init()
   Concord.utils.loadNamespace("src/systems", Systems)
 
   local gameover = Resources.manager:get("gameover")
+  Resources.manager:get("woosh"):play()
   Concord.entity(self.world)
     :give("position", Resources.cx * 0.5 - gameover:getWidth() * 0.5, 67)
     :give("sprite", gameover)

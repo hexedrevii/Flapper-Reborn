@@ -17,6 +17,13 @@ function ButtonSystem:mousereleased(x, y, button)
   for _,entity in ipairs(self.pool) do
     if entity:has("pressed") then
       if isInside(x, y, entity.position, entity.rectangle) then
+        ---@type love.Source
+        local woosh = Resources.manager:get("woosh")
+        if woosh:isPlaying() then
+          woosh:stop()
+        end
+        woosh:play()
+
         if not entity:has("clicked") then
           entity:give("clicked")
         end
