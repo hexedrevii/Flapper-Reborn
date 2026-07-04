@@ -9,7 +9,7 @@ function PlayerScoreSystem:update(delta)
   end
 
   for _, entity in ipairs(self.pool) do
-    entity:give("count_toward", player.score.score, 0.1)
+    entity:give("count_toward", player.score.score, 0.05)
 
     entity:remove("ease_complete")
   end

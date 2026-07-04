@@ -19,6 +19,9 @@ function CountTowardSystem:update(delta)
           entity:give("count_complete")
         end
       end
+    elseif count.current == count.num then
+      entity:remove("count_toward")
+      entity:give("count_complete")
     end
   end
 end

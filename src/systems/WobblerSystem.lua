@@ -5,7 +5,7 @@ local WobblerSystem = Concord.system({ pool = { "wobbler", "position" } })
 function WobblerSystem:update(delta)
   for _, entity in ipairs(self.pool) do
     local wobbler = entity.wobbler
-    local position = entity.velocity
+    local position = entity.position
 
     local old = wobbler.size * math.sin(wobbler.speed * wobbler.timer)
     wobbler.timer = wobbler.timer + delta

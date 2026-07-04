@@ -12,3 +12,11 @@ Concord.component("pause", function (c, paused)
 end)
 
 Concord.component("resume")
+
+Concord.component("play")
+
+Concord.component("ok")
+
+Concord.component("transition", function (c, what)
+  c.what = what
+end)
