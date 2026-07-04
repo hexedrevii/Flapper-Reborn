@@ -1,34 +1,48 @@
-# Love2D game template!
+# Flapper Reborn
 
-[Love2D](https://love2d.org) is a simple and easy to use video game creation framework written in C with scripting done in Lua!
+Flapper Reborn! Now available on your desktop, web browser, and phone!
 
-This template aims to help setup projects faster.
+Flapper Reborn is a complete rewrite in Love2D of my [old clone](https://github.com/hexedrevii/Flapper). Flapper is an *almost* 1:1 copy of Flappy Bird 1.0
 
->[!NOTE]
->This template is mainly for personal use; <br/>
->But anyone can use it!
+I made this because I really want to play the original, as it is no longer available I decided I should re-write it myself.
 
-# Files
-- main.lua -> This is where your main game logic goes!
-- conf.lua -> Window config (see the comment)
-- scripts -> This is where every script for your game should go.
-- lib -> This is where external libraries should go (eg. cartographer.lua)
-- assets -> Where sprites, fonts, level data go.
+> [!CAUTION]
+> I, do not, IN ANY WAY, claim I'm the original creator of this game! <br>
+> I've merely recreated a hood classic. <br>
+> All credit goes to .Gears Studio!
 
-<br/> 
+## Playing the game
 
-- .editorconfig -> If you have the `Editor Config` extension enabled, you are able to control your code style! (Eg. using tabs instead of spaces, space width, etc.)
+### Web
+You can play it on [itch.io](https://hexedrevii.itch.io/flapper)!
 
-<br/>
+### Desktops
+To play flapper on your desktop, You must first get LOVE.
 
-- .gitignore -> Where all ignored files should go. (They won't be added to the git repository)
-- .gitattributes -> Git attributes; They ignore the `lib` folder from being counted in the language counter on github!
+You can download it from [here](https://love2d.org).
 
-<br/>
+There are two ways to go from here, make your own .love file, or simply download the file from the releases page.
 
-- .vscode -> This directory does a little bit of setup, if you use the Lua and Love2D extensions, you will get a working LSP system with autocomplete and error highlighting!
+If you want to build your own, you can start by cloning the repository:
 
-# LICENSE
-This project uses the GPL 3.0 license by default, but you can just delete it and add MIT or something else.
+```bash
+git clone https://github.com/hexedrevii/flapper-reborn
+
+cd flapper-reborn
+```
+
+Now, you simply zip it up with `zip`
+```bash
+zip -9 -r Flapper.love .
+```
+
+And that's it! You can either double-click it to run it with love, or drag it into your LOVE window.
+
+### Mobiles
+You can download a LOVE launcher. For example, on iOS, you can get [Love2D Studio](https://apps.apple.com/ro/app/love2d-studio/id6474188075), it is completely free and you can import .love files.
+
+Simply get the .love from the releases page!
 
 
+## License
+GPL 3.0
