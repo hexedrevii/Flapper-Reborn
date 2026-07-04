@@ -16,21 +16,24 @@ function JumpSystem:mousepressed(x, y, button)
   x, y = Resources.canvas:toGame(x, y)
 
   for _, entity in ipairs(self.pool) do
+    local needSkip = false
     for _, ui in ipairs(self.ui) do
       if isInside(x, y, ui.position, ui.rectangle) then
-        goto skip
+        needSkip = true
+        break
       end
     end
 
-    entity.velocity.y = -entity.jump.force
-    ---@type love.Source
-    local jump = Resources.manager:get("jump")
-    if jump:isPlaying() then
-      jump:stop()
-    end
+    if not needSkip then
+      entity.velocity.y = -entity.jump.force
+      ---@type love.Source
+      local jump = Resources.manager:get("jump")
+      if jump:isPlaying() then
+        jump:stop()
+      end
 
-    jump:play()
-    ::skip::
+      jump:play()
+    end
   end
 end
 
