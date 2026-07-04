@@ -42,6 +42,20 @@ function love.load()
 
   Resources.manager:add("blank", love.graphics.newImage("assets/Sprites/casablanca.png"))
 
+  Resources.manager:add("bronze", love.graphics.newImage("assets/Sprites/bronze-medal.png"))
+  Resources.manager:add("silver", love.graphics.newImage("assets/Sprites/silver-medal.png"))
+  Resources.manager:add("gold", love.graphics.newImage("assets/Sprites/gold-medal.png"))
+  Resources.manager:add("platinum", love.graphics.newImage("assets/Sprites/platinum-medal.png"))
+
+  for i=1,3 do
+    Resources.manager:add("sparkle-" .. i, love.graphics.newImage("assets/Sprites/sparkle-" .. i .. ".png"))
+  end
+
+  for i=0, 9 do
+    Resources.manager:add(i .. "", love.graphics.newImage("assets/Sprites/" .. i .. ".png"))
+    Resources.manager:add(i .. "-small", love.graphics.newImage("assets/Sprites/" .. i .. "_small.png"))
+  end
+
   Resources.manager:add("jump", love.audio.newSource("assets/Audio/wing.wav", "static"))
   Resources.manager:add("point", love.audio.newSource("assets/Audio/point.wav", "static"))
 
@@ -49,11 +63,6 @@ function love.load()
   Resources.manager:add("fall", love.audio.newSource("assets/Audio/die.wav", "static"))
 
   Resources.manager:add("woosh", love.audio.newSource("assets/Audio/swoosh.wav", "static"))
-
-  for i=0, 9 do
-    Resources.manager:add(i .. "", love.graphics.newImage("assets/Sprites/" .. i .. ".png"))
-    Resources.manager:add(i .. "-small", love.graphics.newImage("assets/Sprites/" .. i .. "_small.png"))
-  end
 
   Resources.worlds:set(Menu)
 end

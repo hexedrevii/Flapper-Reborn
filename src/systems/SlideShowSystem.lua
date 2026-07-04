@@ -17,6 +17,10 @@ function SlideShowSystem:update(delta)
         slides.current = slides.current + 1
       end
 
+      if slides.current <= 1 and slides.reverse and not entity:has("anim_finish") then
+        entity:give("anim_finish")
+      end
+
       if slides.current >= #slides.images or slides.current <= 1 then
         slides.reverse = not slides.reverse
       end
