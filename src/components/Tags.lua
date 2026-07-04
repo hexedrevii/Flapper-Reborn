@@ -12,3 +12,7 @@ Concord.component("scoreboard")
 
 Concord.component("start")
 Concord.component("begin")
+
+Concord.component("playerscore")
+
+Concord.component("count_complete")

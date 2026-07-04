@@ -29,6 +29,8 @@ function love.load()
   Resources.manager:add("pause", love.graphics.newImage("assets/Buttons/pause.png"))
   Resources.manager:add("resume", love.graphics.newImage("assets/Buttons/resume.png"))
 
+  Resources.manager:add("new", love.graphics.newImage("assets/Sprites/new.png"))
+
   for i=0, 9 do
     Resources.manager:add(i .. "", love.graphics.newImage("assets/Sprites/" .. i .. ".png"))
     Resources.manager:add(i .. "-small", love.graphics.newImage("assets/Sprites/" .. i .. "_small.png"))

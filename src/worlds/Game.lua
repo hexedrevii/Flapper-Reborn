@@ -38,7 +38,11 @@ function Game:init()
   -- Death state
   self.world:addSystems(
     Systems.EaseSystem,
-    Systems.EasingCallbacks.GameOverSystem
+    Systems.EasingCallbacks.GameOverSystem,
+    Systems.EasingCallbacks.PlayerScoreSystem,
+    Systems.CountTowardSystem,
+
+    Systems.ScoreNumSystem
   )
 
   -- UI
