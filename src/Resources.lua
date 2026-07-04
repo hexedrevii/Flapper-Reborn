@@ -10,7 +10,9 @@ local Resources = {
   cy = 512,
   canvas = PixelCanvas.new(288, 512, 'nearest'),
   input = Input.new(),
-  manager = ResourceManager.new()
+  manager = ResourceManager.new(),
+
+  highscore = 0,
 }
 
 return Resources

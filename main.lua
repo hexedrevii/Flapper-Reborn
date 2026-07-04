@@ -26,6 +26,9 @@ function love.load()
   Resources.manager:add("ready", love.graphics.newImage("assets/Sprites/getready.png"))
   Resources.manager:add("message", love.graphics.newImage("assets/Sprites/readysprite.png"))
 
+  Resources.manager:add("pause", love.graphics.newImage("assets/Buttons/pause.png"))
+  Resources.manager:add("resume", love.graphics.newImage("assets/Buttons/resume.png"))
+
   for i=0, 9 do
     Resources.manager:add(i .. "", love.graphics.newImage("assets/Sprites/" .. i .. ".png"))
     Resources.manager:add(i .. "-small", love.graphics.newImage("assets/Sprites/" .. i .. "_small.png"))
@@ -53,8 +56,12 @@ end
 
 function love.mousepressed(x, y, button)
   Resources.input:mousepressed(x, y, button)
+
+  Resources.worlds:mousepressed(x, y, button)
 end
 
 function love.mousereleased(x, y, button)
   Resources.input:mousereleased(x, y, button)
+
+  Resources.worlds:mousereleased(x, y, button)
 end
