@@ -1,5 +1,6 @@
 local Resources = require "src.Resources"
 local Game      = require "src.worlds.Game"
+local Menu      = require "src.worlds.Menu"
 local Concord   = require "lib.Concord"
 
 function love.load()
@@ -29,14 +30,24 @@ function love.load()
   Resources.manager:add("pause", love.graphics.newImage("assets/Buttons/pause.png"))
   Resources.manager:add("resume", love.graphics.newImage("assets/Buttons/resume.png"))
 
+  Resources.manager:add("start", love.graphics.newImage("assets/Buttons/start.png"))
+  Resources.manager:add("score", love.graphics.newImage("assets/Buttons/score.png"))
+
+  Resources.manager:add("ok", love.graphics.newImage("assets/Buttons/ok.png"))
+  Resources.manager:add("share", love.graphics.newImage("assets/Buttons/share.png"))
+
   Resources.manager:add("new", love.graphics.newImage("assets/Sprites/new.png"))
+
+  Resources.manager:add("logo", love.graphics.newImage("assets/Sprites/logo.png"))
+
+  Resources.manager:add("blank", love.graphics.newImage("assets/Sprites/casablanca.png"))
 
   for i=0, 9 do
     Resources.manager:add(i .. "", love.graphics.newImage("assets/Sprites/" .. i .. ".png"))
     Resources.manager:add(i .. "-small", love.graphics.newImage("assets/Sprites/" .. i .. "_small.png"))
   end
 
-  Resources.worlds:set(Game)
+  Resources.worlds:set(Menu)
 end
 
 function love.update(delta)

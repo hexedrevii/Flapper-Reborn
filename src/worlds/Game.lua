@@ -41,9 +41,20 @@ function Game:init()
     Systems.EasingCallbacks.GameOverSystem,
     Systems.EasingCallbacks.PlayerScoreSystem,
     Systems.CountTowardSystem,
+    Systems.TransitionSystem,
+    Systems.CountingCallbacks.PlayerCountCompleteSystem,
+    Systems.UICallbacks.OkClickedSystem,
 
     Systems.ScoreNumSystem
   )
+
+  -- Other half of transition
+  Concord.entity(self.world)
+    :give("position", 0, 0)
+    :give("colour", 0,0,0,1)
+    :give("sprite", Resources.manager:get("blank"))
+    :give("layer", 99)
+    :give("fade", 3, true)
 
   -- UI
   Concord.entity(self.world)
@@ -102,7 +113,7 @@ function Game:init()
   -- Bird
   Concord.entity(self.world)
     -- This is for the start...
-    :give("wobbler", 25, 10)
+    :give("wobbler", 5, 10)
     :give("begin")
 
     :give("player")

@@ -30,4 +30,16 @@ function Death:draw()
   Resources.canvas:render()
 end
 
+function Death:mousepressed(x, y, button)
+  if button ~= 1 then return end
+
+  self.world:emit("mousepressed", x, y, button)
+end
+
+function Death:mousereleased(x, y, button)
+  if button ~= 1 then return end
+
+  self.world:emit("mousereleased", x, y, button)
+end
+
 return Death
