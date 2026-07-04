@@ -13,6 +13,8 @@ local function isInside(x, y, pos, rect)
 end
 
 function JumpSystem:mousepressed(x, y, button)
+  x, y = Resources.canvas:toGame(x, y)
+
   for _, entity in ipairs(self.pool) do
     for _, ui in ipairs(self.ui) do
       if isInside(x, y, ui.position, ui.rectangle) then

@@ -101,4 +101,22 @@ function PixelCanvas:render(sx, sy)
   love.graphics.draw(self.__body, x, y, 0, scale, scale)
 end
 
+function PixelCanvas:toGame(screenX, screenY)
+    local windowWidth, windowHeight = love.graphics.getDimensions()
+
+    local scale = math.min(windowWidth / self.w, windowHeight / self.h)
+
+    local offsetX = (windowWidth - self.w * scale) / 2
+    local offsetY = (windowHeight - self.h * scale) / 2
+
+    local gameX = (screenX - offsetX) / scale
+    local gameY = (screenY - offsetY) / scale
+
+    if gameX < 0 or gameY < 0 or gameX > self.w or gameY > self.h then
+        return nil, nil -- Clicked outside the game screen
+    end
+
+    return gameX, gameY
+end
+
 return PixelCanvas

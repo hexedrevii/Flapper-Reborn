@@ -148,14 +148,10 @@ function Game:draw()
 end
 
 function Game:mousepressed(x, y, button)
-  if button ~= 1 then return end
-
   self.world:emit("mousepressed", x, y, button)
 end
 
 function Game:mousereleased(x, y, button)
-  if button ~= 1 then return end
-
   self.world:emit("mousereleased", x, y, button)
 end
 

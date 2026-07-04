@@ -103,14 +103,10 @@ function Menu:draw()
 end
 
 function Menu:mousepressed(x, y, button)
-  if button ~= 1 then return end
-
   self.world:emit("mousepressed", x, y, button)
 end
 
 function Menu:mousereleased(x, y, button)
-  if button ~= 1 then return end
-
   self.world:emit("mousereleased", x, y, button)
 end
 
