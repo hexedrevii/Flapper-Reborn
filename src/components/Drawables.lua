@@ -9,6 +9,17 @@ Concord.component("sprite", function (c, image, flip)
   c.flipped = flip
 end)
 
+Concord.component("scorenum", function (c, num)
+  c.num = num
+end)
+
+Concord.component("count_toward", function (c, num, timeout)
+  c.num = num
+  c.timeout = timeout
+  c.time = 0
+  c.current = 0
+end)
+
 Concord.component("offset", function (c, x, y)
   c.x = x
   c.y = y
