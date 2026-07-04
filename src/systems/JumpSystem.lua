@@ -23,6 +23,13 @@ function JumpSystem:mousepressed(x, y, button)
     end
 
     entity.velocity.y = -entity.jump.force
+    ---@type love.Source
+    local jump = Resources.manager:get("jump")
+    if jump:isPlaying() then
+      jump:stop()
+    end
+
+    jump:play()
     ::skip::
   end
 end

@@ -22,6 +22,13 @@ function IntroSystem:mousepressed(x, y, button)
       :give("rotation", 0)
 
     entity.velocity.y = -entity.jump.force
+    ---@type love.Source
+    local jump = Resources.manager:get("jump")
+    if jump:isPlaying() then
+      jump:stop()
+    end
+
+    jump:play()
 
     Concord.entity(self:getWorld())
       :give("spawner", 1.25)
