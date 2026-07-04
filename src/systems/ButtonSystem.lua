@@ -4,6 +4,8 @@ local Resources = require "src.Resources"
 local ButtonSystem = Concord.system({ pool = {"button", "position", "rectangle"} })
 
 local function isInside(x, y, pos, rect)
+  if x == nil or y == nil then return false end
+
   local left = pos.x + (rect.ox or 0)
   local right = left + rect.width
   local top = pos.y + (rect.oy or 0)
