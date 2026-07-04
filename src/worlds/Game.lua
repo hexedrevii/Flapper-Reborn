@@ -33,6 +33,12 @@ function Game:init()
     Systems.FlashSystem
   )
 
+  -- Death state
+  self.world:addSystems(
+    Systems.EaseSystem,
+    Systems.EasingCallbacks.GameOverSystem
+  )
+
   -- Message stuff
   local ready = Resources.manager:get("ready")
   local ry = 90

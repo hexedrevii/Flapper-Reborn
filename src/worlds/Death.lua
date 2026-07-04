@@ -6,6 +6,16 @@ local Death = {}
 function Death:init()
   local Systems = {}
   Concord.utils.loadNamespace("src/systems", Systems)
+
+  local gameover = Resources.manager:get("gameover")
+  Concord.entity(self.world)
+    :give("position", Resources.cx * 0.5 - gameover:getWidth() * 0.5, 67)
+    :give("sprite", gameover)
+    :give("fade", 5, false)
+    :give("colour", 1,1,1,0)
+    :give("move_ease", 100, 120, 0.2, "inOutQuad")
+    :give("gameover")
+    :give("layer", 67)
 end
 
 function Death:update(dt)
