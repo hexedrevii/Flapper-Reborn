@@ -86,6 +86,8 @@ function CollisionSystem:update(delta)
 
       Death.world = self:getWorld()
       Resources.worlds:set(Death)
+
+      break
     end
   end
 end

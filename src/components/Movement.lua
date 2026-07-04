@@ -24,11 +24,18 @@ Concord.component("wobbler", function (c, size, speed)
   c.timer = 0
 end)
 
+Concord.component("move_ease", function (c, starty, endy, duration, ease)
+  c.starty = starty
+  c.endy = endy
+
+  c.duration = duration
+  c.time = 0
+
+  c.ease = ease or "inOutQuad"
+end)
+
 Concord.component("offscreen_destroy", function (c, offset)
-  c.offset = offset
-  if c.offset == nil then
-    c.offset = 0
-  end
+  c.offset = offset or 0
 end)
 
 Concord.component("jump", function (c, force)
