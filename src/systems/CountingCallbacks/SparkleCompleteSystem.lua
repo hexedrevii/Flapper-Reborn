@@ -5,7 +5,6 @@ local SparkleCompleteSystem = Concord.system({ pool = { "sparkle", "anim_finish"
 function SparkleCompleteSystem:update(delta)
   for _,entity in ipairs(self.pool) do
     local position = entity.position
-    local medal = entity.sprite.image
 
     local sx = love.math.random(56, 100)
     local sy = love.math.random(243, 280)

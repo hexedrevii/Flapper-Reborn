@@ -28,6 +28,9 @@ function GameOverSystem:update(delta)
     if player.score.score > Resources.highscore then
       Resources.highscore = player.score.score
 
+      -- Save the highscore
+      love.filesystem.write("score.txt", tostring(Resources.highscore))
+
       -- New highscore tag
       Concord.entity(world)
         :give("position", 165, 600)

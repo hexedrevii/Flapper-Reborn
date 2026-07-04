@@ -64,6 +64,13 @@ function love.load()
 
   Resources.manager:add("woosh", love.audio.newSource("assets/Audio/swoosh.wav", "static"))
 
+  -- Load high score
+  love.filesystem.setIdentity("HexedRevii_Flapper")
+  if love.filesystem.getInfo("score.txt") then
+    local score = love.filesystem.read("score.txt")
+    Resources.highscore = tonumber(score)
+  end
+
   Resources.worlds:set(Menu)
 end
 
