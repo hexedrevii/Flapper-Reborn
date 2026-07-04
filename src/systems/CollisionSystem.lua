@@ -56,6 +56,7 @@ local CollisionSystem = Concord.system(
 
 function CollisionSystem:update(delta)
   local player = self.player[1]
+  if not player then return end
 
   for _, entity in ipairs(self.scores) do
     if rects(
@@ -90,6 +91,7 @@ function CollisionSystem:update(delta)
 
       player:remove("gravity")
       player:remove("slideshow")
+      player:remove("rectangle")
 
       ground:remove("rectangle")
 

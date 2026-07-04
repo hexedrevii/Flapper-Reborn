@@ -16,3 +16,6 @@ Concord.component("begin")
 Concord.component("playerscore")
 
 Concord.component("count_complete")
+
+Concord.component("anim_finish")
+Concord.component("sparkle")

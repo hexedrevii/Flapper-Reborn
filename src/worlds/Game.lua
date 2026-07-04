@@ -44,6 +44,7 @@ function Game:init()
     Systems.TransitionSystem,
     Systems.CountingCallbacks.PlayerCountCompleteSystem,
     Systems.UICallbacks.OkClickedSystem,
+    Systems.CountingCallbacks.SparkleCompleteSystem,
 
     Systems.ScoreNumSystem
   )
