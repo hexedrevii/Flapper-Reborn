@@ -26,14 +26,14 @@ function PlayerCountCompleteSystem:update(delta)
     -- Calculate medal
     local points = player.score
     local medal = nil
-    if points.score >= 10 then
-      medal = Resources.manager:get("bronze")
-    elseif points.score >= 20 then
-      medal = Resources.manager:get("silver")
+    if points.score >= 40 then
+      medal = Resources.manager:get("platinum")
     elseif points.score >= 30 then
       medal = Resources.manager:get("gold")
-    elseif points.score >= 40 then
-      medal = Resources.manager:get("platinum")
+    elseif points.score >= 20 then
+      medal = Resources.manager:get("silver")
+    elseif points.score >= 10 then
+      medal = Resources.manager:get("bronze")
     end
 
     if medal then
