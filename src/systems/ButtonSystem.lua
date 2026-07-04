@@ -1,4 +1,5 @@
 local Concord = require "lib.Concord"
+local Resources = require "src.Resources"
 
 local ButtonSystem = Concord.system({ pool = {"button", "position", "rectangle"} })
 
@@ -12,6 +13,7 @@ local function isInside(x, y, pos, rect)
 end
 
 function ButtonSystem:mousereleased(x, y, button)
+  x, y = Resources.canvas:toGame(x, y)
   for _,entity in ipairs(self.pool) do
     if entity:has("pressed") then
       if isInside(x, y, entity.position, entity.rectangle) then
@@ -28,6 +30,7 @@ function ButtonSystem:mousereleased(x, y, button)
 end
 
 function ButtonSystem:mousepressed(x, y, button)
+  x, y = Resources.canvas:toGame(x, y)
   for _,entity in ipairs(self.pool) do
     if isInside(x, y, entity.position, entity.rectangle) then
       entity:give("pressed")
