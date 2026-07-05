@@ -12,8 +12,8 @@ function SpawnerSystem:update(delta)
       spawner.time = 0
 
       local world = self:getWorld()
-      local py = love.math.random(120, Resources.cy - 150)
-      local gap = 100
+      local py = love.math.random(160, Resources.cy - 180)
+      local gap = 90
       local offset = 60
 
       local speed = 150
